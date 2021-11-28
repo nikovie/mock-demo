@@ -2,10 +2,6 @@
   .container {
     margin: 0.5em 1em 1em 1em;
   }
-
-  .country .details {
-    margin-top: 1em;
-  }
 }
 
 
@@ -17,16 +13,4 @@
 
 body {
   background-color: lightblue;
-}
-
-.country h1 {
-  margin-bottom: 0;
-}
-
-.country span.official {
-  font-style: italic;
-}
-
-.country img {
-  height: 50px;
 }
