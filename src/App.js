@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { initArticles } from './reducers/articleReducer'
 import Header from './components/Header'
 import {
-  Routes, Route, Link
+  Routes, Route
 } from 'react-router-dom'
 
 const App = () => {
@@ -25,6 +25,7 @@ const App = () => {
         <Routes>
           <Route path="/articles/:id" element={ <h1>Article</h1> } />
           <Route path="/articles" element={ <h1>Articles</h1> } />
+          <Route path="/add" element={ <h1>Add new</h1> } />
           <Route path="/" element={ <h1>Hi there! </h1> } />
         </Routes>
       
