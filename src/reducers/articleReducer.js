@@ -19,5 +19,4 @@ export const initArticles = () => {
   }
 }
 
-
 export default articleReducer
