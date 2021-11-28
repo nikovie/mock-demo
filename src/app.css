@@ -1,0 +1,32 @@
+@media only screen and (max-width: 576px) {
+  .container {
+    margin: 0.5em 1em 1em 1em;
+  }
+
+  .country .details {
+    margin-top: 1em;
+  }
+}
+
+
+@media (min-width: 576px) {
+  .container {
+    margin: 2em 2em 2em 2em;
+  }
+}
+
+body {
+  background-color: lightblue;
+}
+
+.country h1 {
+  margin-bottom: 0;
+}
+
+.country span.official {
+  font-style: italic;
+}
+
+.country img {
+  height: 50px;
+}
