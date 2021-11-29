@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table } from 'react-bootstrap'
+import { Table, Badge } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const Article = ({ data, users, activeUser, removeArticle }) => {
@@ -33,9 +33,11 @@ const Article = ({ data, users, activeUser, removeArticle }) => {
 
                   {!activeUser || row.userId !== activeUser.id ? null : (
                     <div>
-                    <a href="/" 
-                      onClick={() => removeArticle(row)}
-                    >Delete</a>
+                      <Badge 
+                        bg='danger' 
+                        onClick={() => removeArticle(row)}
+                        className='pointer'
+                      >Delete</Badge> 
                   </div>
                   )}
                   

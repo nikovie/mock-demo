@@ -14,3 +14,10 @@
 body {
   background-color: lightblue;
 }
+
+.pointer {
+  cursor: pointer;
+}
+.pointer:hover {
+  box-shadow: inset 0em 0em 0em 10em rgba(0, 0, 0, 0.3);
+}
