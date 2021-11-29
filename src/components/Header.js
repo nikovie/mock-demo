@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Navbar, Nav } from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
-const Header = () => {
-  
+
+const Header = ({ users, login, setUser }) => {
+    console.log(`login`, login)
     return (
       <Navbar bg="light-gray" expand="sm" className='ph3'>
         <Navbar.Brand>Mock-demo</Navbar.Brand>
@@ -16,10 +17,31 @@ const Header = () => {
             <Nav.Link href="#" as="span">
               <Link to="/articles" className="menuItem">Articles</Link>
             </Nav.Link>
-            <Nav.Link href="#" as="span">
-              <Link to="/add" className="menuItem">Add new</Link>
-            </Nav.Link>
+            {!login
+              ? null 
+              : <Nav.Link href="#" as="span">
+                <Link to="/add" className="menuItem">Add new</Link>
+              </Nav.Link>
+            }
+            
 
+            <NavDropdown 
+              title={!login ? 'Login' : `Logged in: ${login.username}`} 
+              id='nav-dropdown' 
+              onSelect={(id) => setUser(id)}
+            >
+              {users
+                .map(({username, id}) => (
+                  <NavDropdown.Item 
+                    key={id} 
+                    eventKey={id}
+                  >
+                    {username}
+                  </NavDropdown.Item>
+                ))
+              }
+            </NavDropdown>
+            
           </Nav>
 
         </Navbar.Collapse>

@@ -7,6 +7,17 @@ const getAll = async () => {
   return response.data
 } 
 
-const articleService = { getAll }
+const create = async articleObject => {
+  console.log(`articleObject`, articleObject)
+  const response = await axios.post(baseUrl, articleObject)
+  return response.data
+}
+
+const remove = async (id) => {
+  const response = await axios.delete(`${baseUrl}/${id}`)
+  return response.data
+}
+
+const articleService = { getAll, create, remove }
 
 export default articleService

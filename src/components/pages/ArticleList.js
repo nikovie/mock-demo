@@ -1,11 +1,12 @@
 import React from 'react'
-
 import { Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-const Article = ({ data }) => {
-  console.log(`articles`, data)
-  
+const Article = ({ data, users, activeUser, removeArticle }) => {
+  // console.log(`articles`, data)
+  console.log(`activeUser`, activeUser)
+  console.log(`users`, users)
+
   return (
     <div>
       <h1>Articles</h1>
@@ -18,7 +19,30 @@ const Article = ({ data }) => {
               <th></th>
             </tr>
           </thead>
-          <TableRows rows={data} />
+          <tbody>
+            {data.map((row, id) => (
+              <tr key={id}>
+                <td>{row.id}</td>
+                <td>{row.title}</td>
+                <td>
+                  <div>
+                    <Link 
+                      to={`/articles/${row.id}`}
+                    >View</Link>
+                  </div>
+
+                  {!activeUser || row.userId !== activeUser.id ? null : (
+                    <div>
+                    <a href="/" 
+                      onClick={() => removeArticle(row)}
+                    >Delete</a>
+                  </div>
+                  )}
+                  
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </Table>
       </div>
       
@@ -26,21 +50,10 @@ const Article = ({ data }) => {
   )
 }
 
-const TableRows = ({ rows }) => {
-  return (
-    <tbody>
-      {rows.map((row, id) => (
-        <tr key={id}>
-          <td>{row.id}</td>
-          <td>{row.title}</td>
-          <td>
-            <Link 
-              to={`/articles/${row.id}`}
-            >View</Link></td>
-        </tr>
-      ))}
-    </tbody>
-  )
-}
+// const TableRows = ({ rows, activeUser, removeArticle }) => {
+//   return (
+    
+//   )
+// }
 
 export default Article
